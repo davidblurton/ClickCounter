@@ -7,7 +7,7 @@
         Title="Click Counter Example" Height="350" Width="525" d:DataContext="{d:DesignInstance clickCounter:MainWindowViewModel}">
     
     <StackPanel Margin="20">
-        <TextBlock>
+        <TextBlock FontSize="16">
             <TextBlock.Inlines>
                 <Run>You've clicked </Run>
                 <Run Text="{Binding NumberOfClicks.Value}"/>
@@ -25,7 +25,7 @@
                     </Binding.Converter>
                 </Binding>
             </StackPanel.Visibility>
-            <TextBlock>That's too many clicks! Please stop before you wear out your fingers.</TextBlock>
+            <TextBlock FontSize="16">That's too many clicks! Please stop before you wear out your fingers.</TextBlock>
             <Button Command="{Binding ResetClicks}">Reset clicks</Button>
         </StackPanel>
     </StackPanel>
