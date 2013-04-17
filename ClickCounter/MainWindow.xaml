@@ -15,7 +15,7 @@
             </TextBlock.Inlines>
         </TextBlock>
 
-        <Button Command="{Binding RegisterClickCommand}" HorizontalAlignment="Left" VerticalAlignment="Top">Click me</Button>
+        <Button Command="{Binding RegisterClickCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Background="DarkBlue" Foreground="White" Padding="10" Margin="0 10 0 0">Click me</Button>
 
         <StackPanel Orientation="Horizontal">
             <StackPanel.Visibility>
