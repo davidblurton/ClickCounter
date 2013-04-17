@@ -1,0 +1,32 @@
+﻿<Window x:Class="ClickCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:clickCounter="clr-namespace:ClickCounter" mc:Ignorable="d"
+        Title="Click Counter Example" Height="350" Width="525" d:DataContext="{d:DesignInstance clickCounter:MainWindowViewModel}">
+    
+    <StackPanel Margin="20">
+        <TextBlock>
+            <TextBlock.Inlines>
+                <Run>You've clicked </Run>
+                <Run Text="{Binding NumberOfClicks.Value}"/>
+                <Run> times</Run>
+            </TextBlock.Inlines>
+        </TextBlock>
+
+        <Button Command="{Binding RegisterClickCommand}" HorizontalAlignment="Left" VerticalAlignment="Top">Click me</Button>
+
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Visibility>
+                <Binding Path="HasClickedTooManyTimes.Value">
+                    <Binding.Converter>
+                        <BooleanToVisibilityConverter />
+                    </Binding.Converter>
+                </Binding>
+            </StackPanel.Visibility>
+            <TextBlock>That's too many clicks! Please stop before you wear out your fingers.</TextBlock>
+            <Button Command="{Binding ResetClicks}">Reset clicks</Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
